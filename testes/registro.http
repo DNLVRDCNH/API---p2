@@ -2,10 +2,8 @@
 
 POST {{url}}
 Content-Type: application/json
-Authorization: Bearer seu.token.jwt.aqui
-
 {
-    "dataRegistro": "2024-01-01",
+    "dataRegistro": "2020-04-01",
     "status": "ATIVO",
     "alunoId": 1,
     "cursoId": 1
@@ -13,15 +11,12 @@ Authorization: Bearer seu.token.jwt.aqui
 
 ###
 GET {{url}}
-Authorization: Bearer seu.token.jwt.aqui
 
 ###
 PUT {{url}}/1
 Content-Type: application/json
-Authorization: Bearer seu.token.jwt.aqui
-
 {
-    "dataRegistro": "2023-01-01",
+    "dataRegistro": "2007-04-20",
     "status": "INATIVO",
     "alunoId": 1,
     "cursoId": 1

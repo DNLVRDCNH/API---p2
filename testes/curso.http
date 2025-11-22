@@ -3,37 +3,32 @@
 
 POST {{url}}
 Content-Type: application/json
-Authorization: Bearer seu.token.jwt.aqui
 
 {
-    "nome": "Big Data no Agronegócio",
-    "descricao": "blablablablabla",
-    "cargaHoraria": 2400,
+    "nome": "Desing",
+    "descricao": "moda e arte",
+    "cargaHoraria": 3000,
     "status": "ativo",
-    "horaCriacao": "2001-01-01T00:00:00"
+    "horaCriacao": "2022-01-01T00:00:00"
 }
 
 ###
 
 
 GET {{url}}
-Authorization: Bearer seu.token.jwt.aqui
 
 ###
 
 
 GET {{url}}/1
-Authorization: Bearer seu.token.jwt.aqui
 
 ###
 
 
 PUT {{url}}/1
 Content-Type: application/json
-Authorization: Bearer seu.token.jwt.aqui
 
 {
     "status": "inativo"
 }
-
 ###
