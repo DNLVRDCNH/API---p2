@@ -1,0 +1,39 @@
+@url = https://vigilant-guacamole-r999xv6pw7jh5rpr-8080.app.github.dev/cursos
+
+
+POST {{url}}
+Content-Type: application/json
+Authorization: Bearer seu.token.jwt.aqui
+
+{
+    "nome": "Big Data no Agronegócio",
+    "descricao": "blablablablabla",
+    "cargaHoraria": 2400,
+    "status": "ativo",
+    "horaCriacao": "2001-01-01T00:00:00"
+}
+
+###
+
+
+GET {{url}}
+Authorization: Bearer seu.token.jwt.aqui
+
+###
+
+
+GET {{url}}/1
+Authorization: Bearer seu.token.jwt.aqui
+
+###
+
+
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: Bearer seu.token.jwt.aqui
+
+{
+    "status": "inativo"
+}
+
+###

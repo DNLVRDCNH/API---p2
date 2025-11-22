@@ -1,0 +1,28 @@
+@url = https://vigilant-guacamole-r999xv6pw7jh5rpr-8080.app.github.dev/registros
+
+POST {{url}}
+Content-Type: application/json
+Authorization: Bearer seu.token.jwt.aqui
+
+{
+    "dataRegistro": "2024-01-01",
+    "status": "ATIVO",
+    "alunoId": 1,
+    "cursoId": 1
+}
+
+###
+GET {{url}}
+Authorization: Bearer seu.token.jwt.aqui
+
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: Bearer seu.token.jwt.aqui
+
+{
+    "dataRegistro": "2023-01-01",
+    "status": "INATIVO",
+    "alunoId": 1,
+    "cursoId": 1
+}

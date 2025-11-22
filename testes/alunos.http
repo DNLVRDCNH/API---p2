@@ -1,0 +1,30 @@
+@url = https://vigilant-guacamole-r999xv6pw7jh5rpr-8080.app.github.dev/alunos
+
+POST {{url}}
+Content-Type: application/json
+Authorization: Bearer seu.token.jwt.aqui
+
+{
+    "nome": "Fernanda Ferrari",
+    "email": "fernanda@email.com",
+    "telefone": "11999999999",
+    "dataRegistro": "2024-01-01"
+}
+
+###
+GET {{url}}
+Authorization: Bearer seu.token.jwt.aqui
+
+###
+GET {{url}}/1
+Authorization: Bearer seu.token.jwt.aqui
+
+###
+PUT {{url}}/1
+Content-Type: application/json
+Authorization: Bearer seu.token.jwt.aqui
+
+{
+    "nome": "Fernanda Ferrari Updated",
+    "dataRegistro": "2023-01-01"
+}
