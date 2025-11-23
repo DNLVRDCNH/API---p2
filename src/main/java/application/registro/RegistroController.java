@@ -22,26 +22,26 @@ public class RegistroController {
     private RegistroService registroService;
 
     @PostMapping
-    @Operation(summary = "Cria um novo registro (matrícula)",
-               description = "Cria um novo registro com as informações fornecidas no corpo da requisição.")
-    @ApiResponse(responseCode = "200", description = "Registro criado com sucesso")     
+    @Operation(summary = "Cria um novo registro",
+               description = "Cria um novo registro com as informações fornecidas da requisição.")
+    @ApiResponse(responseCode = "200", description = "Registro criado")     
     public RegistroDTO insert(@RequestBody RegistroInsertDTO data) {
         return registroService.insert(data);
     }
 
     @GetMapping
-    @Operation(summary = "Lista todos os registros (matrículas)",
-               description = "Retorna uma lista de todos os registros cadastrados no sistema.")
-    @ApiResponse(responseCode = "200", description = "Lista de registros retornada com sucesso")
+    @Operation(summary = "Lista todos os registros",
+               description = "Retorna uma lista de todos os registros no sistema.")
+    @ApiResponse(responseCode = "200", description = "Lista de registros retornada")
     public Iterable<RegistroDTO> getAll() {
         return registroService.getAll();
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualiza um registro existente",
-               description = "Atualiza as informações de um registro específico com base no ID fornecido e nos dados fornecidos no corpo da requisição.")
+    @Operation(summary = "Atualiza um registro",
+               description = "Atualiza as informações de um registro pleo ID fornecido e nos dados fornecidos no corpo da requisição.")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Registro atualizado com sucesso"),
+        @ApiResponse(responseCode = "200", description = "Registro atualizado"),
         @ApiResponse(responseCode = "404", description = "Registro não encontrado")
     })
     public RegistroDTO update(@Parameter(description = "ID do registro a ser atualizado") @PathVariable long id, @RequestBody RegistroInsertDTO data) {
@@ -52,7 +52,7 @@ public class RegistroController {
     @Operation(summary = "Remove um registro",
                description = "Remove um registro específico com base no ID fornecido.")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Registro removido com sucesso"),
+        @ApiResponse(responseCode = "200", description = "Registro removido"),
         @ApiResponse(responseCode = "404", description = "Registro não encontrado")
     })
     public void delete(@Parameter(description = "ID do registro a ser removido") @PathVariable long id) {

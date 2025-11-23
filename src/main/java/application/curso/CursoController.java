@@ -23,7 +23,7 @@ public class CursoController {
 
     @PostMapping
     @Operation(summary = "Cria um novo curso",
-               description = "Cria um novo curso com as informações fornecidas no corpo da requisição.")
+               description = "Cria um novo curso com as informações fornecidas.")
     @ApiResponse(responseCode = "200", description = "Curso criado com sucesso")
     public CursoDTO insert(@RequestBody CursoInsertDTO novoCurso) {
         return cursoService.insert(novoCurso);
@@ -39,20 +39,20 @@ public class CursoController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtém um curso por ID",
-               description = "Retorna os detalhes de um curso específico com base no ID fornecido.")
+               description = "Retorna um curso específico pelo ID dado.")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Curso encontrado e retornado com sucesso"),
+        @ApiResponse(responseCode = "200", description = "Curso encontrado e retornado"),
         @ApiResponse(responseCode = "404", description = "Curso não encontrado")
     })
-    public CursoDTO getOne(@Parameter(description = "ID do Curso a ser buscado") @PathVariable long id) {
+    public CursoDTO getOne(@Parameter(description = "Procurando ID do curso") @PathVariable long id) {
         return cursoService.getOne(id);
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualiza um curso existente",
-               description = "Atualiza as informações de um curso específico com base no ID fornecido e nos dados fornecidos no corpo da requisição.")
+    @Operation(summary = "Atualiza um curso",
+               description = "Atualiza as informações de um curso pelo ID e dados fornecidos no corpo da requisição.")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Curso atualizado com sucesso"),
+        @ApiResponse(responseCode = "200", description = "Curso atualizado "),
         @ApiResponse(responseCode = "404", description = "Curso não encontrado")
     })
     public CursoDTO update(@Parameter(description = "ID do Curso a ser atualizado") @PathVariable long id, @RequestBody CursoInsertDTO data) {
@@ -60,7 +60,7 @@ public class CursoController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@Parameter(description = "ID do Curso a ser removido") @PathVariable long id) {
+    public void delete(@Parameter(description = "ID do Curso para remover") @PathVariable long id) {
         cursoService.delete(id);
     }
 }
