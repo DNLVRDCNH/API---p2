@@ -40,14 +40,18 @@ public class SecurityFilter extends OncePerRequestFilter {
         String token = this.getToken(request);
 
         if(token != null) {
-            String subject = tokenService.getSubject(token);
-            UserDetails user = userDataService.loadUserByUsername(subject);
+            try {
+                String subject = tokenService.getSubject(token);
+                UserDetails user = userDataService.loadUserByUsername(subject);
 
-            UsernamePasswordAuthenticationToken authentication =
-                new UsernamePasswordAuthenticationToken(
-                    user, null, user.getAuthorities());
-                    
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+                UsernamePasswordAuthenticationToken authentication =
+                    new UsernamePasswordAuthenticationToken(
+                        user, null, user.getAuthorities());
+                        
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            } catch (Exception e) {
+                // Token inválido ou expirado
+            }
         }
 
         filterChain.doFilter(request, response);

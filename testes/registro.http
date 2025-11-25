@@ -17,7 +17,6 @@ POST {{url}}
 Authorization: Bearer {{token}}
 Content-Type: application/json
 {
-    "dataRegistro": "2020-04-01",
     "status": "ATIVO",
     "alunoId": 1,
     "cursoId": 1

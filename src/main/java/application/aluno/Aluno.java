@@ -53,6 +53,7 @@ public class Aluno {
         this.nome = aluno.nome();
         this.email = aluno.email();
         this.telefone = aluno.telefone();
-        this.dataRegistro = aluno.dataRegistro();
+        // Se dataRegistro não for fornecida, usa a data atual
+        this.dataRegistro = aluno.dataRegistro() != null ? aluno.dataRegistro() : LocalDate.now();
     }
 }

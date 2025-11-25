@@ -37,6 +37,17 @@ public class RegistroController {
         return registroService.getAll();
     }
 
+    @GetMapping("/{id}")
+    @Operation(summary = "Obtém um registro por ID",
+               description = "Retorna um registro específico pelo ID fornecido.")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "Registro encontrado"),
+        @ApiResponse(responseCode = "404", description = "Registro não encontrado")
+    })
+    public RegistroDTO getOne(@Parameter(description = "ID do registro") @PathVariable long id) {
+        return registroService.getOne(id);
+    }
+
     @PutMapping("/{id}")
     @Operation(summary = "Atualiza um registro",
                description = "Atualiza as informações de um registro pleo ID fornecido e nos dados fornecidos no corpo da requisição.")

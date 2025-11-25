@@ -23,7 +23,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        System.out.println(">>> A CONFIGURAÇÃO DE SEGURANÇA FOI CARREGADA! <<<");
         http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session
@@ -31,17 +30,20 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.POST, "/auth").permitAll()
                 .requestMatchers(HttpMethod.GET, "/public").permitAll()
+                .requestMatchers(HttpMethod.GET, "/cursos").permitAll()
+                .requestMatchers(HttpMethod.GET, "/cursos/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/alunos").permitAll()
+                .requestMatchers(HttpMethod.GET, "/alunos/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/registros").permitAll()
+                .requestMatchers(HttpMethod.GET, "/registros/**").permitAll()
                 .requestMatchers("/swagger-ui/**").permitAll()
                 .requestMatchers("/docs*/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/alunos").authenticated()
-                .requestMatchers(HttpMethod.POST, "/cursos").authenticated()
-                .requestMatchers(HttpMethod.POST, "/registros").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/alunos/**").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/cursos/**").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/registros/**").authenticated()
-                .requestMatchers(HttpMethod.GET, "/alunos/**").authenticated()
-                .requestMatchers(HttpMethod.GET, "/cursos/**").authenticated()
-                .requestMatchers(HttpMethod.GET, "/registros/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "/cursos").permitAll()
+                .requestMatchers(HttpMethod.POST, "/alunos").permitAll()
+                .requestMatchers(HttpMethod.POST, "/registros").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/cursos/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/alunos/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/registros/**").permitAll()
                 .anyRequest().authenticated())
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
         

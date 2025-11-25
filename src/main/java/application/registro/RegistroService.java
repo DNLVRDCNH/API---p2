@@ -47,7 +47,12 @@ public class RegistroService {
         }
 
         Registro novoRegistro = new Registro();
-        novoRegistro.setDataRegistro(data.dataRegistro());
+        // Se dataRegistro não for fornecida, usa a data atual
+        if (data.dataRegistro() != null) {
+            novoRegistro.setDataRegistro(data.dataRegistro());
+        } else {
+            novoRegistro.setDataRegistro(java.time.LocalDate.now());
+        }
         novoRegistro.setStatus(data.status());
         novoRegistro.setAluno(aluResult.get());
         novoRegistro.setCurso(couResult.get());

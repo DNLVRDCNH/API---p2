@@ -46,4 +46,11 @@ public class Registro {
         this.aluno = aluno;
         this.curso = curso;
     }
+    
+    public Registro(RegistroInsertDTO data, Aluno aluno, Curso curso) {
+        this.dataRegistro = data.dataRegistro() != null ? data.dataRegistro() : LocalDate.now();
+        this.status = data.status();
+        this.aluno = aluno;
+        this.curso = curso;
+    }
 }

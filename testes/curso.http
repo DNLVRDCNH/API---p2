@@ -22,8 +22,7 @@ Content-Type: application/json
     "nome": "Desing",
     "descricao": "moda e arte",
     "cargaHoraria": 3000,
-    "status": "ativo",
-    "horaCriacao": "2022-01-01T00:00:00"
+    "status": "ativo"
 }
 
 ###

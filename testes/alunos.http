@@ -20,8 +20,7 @@ Content-Type: application/json
 {
     "nome": "Danilo",
     "email": "danis@email.com",
-    "telefone": "1488921029i19",
-    "dataRegistro": "2025-30-01"
+    "telefone": "1488921029"
 }
 
 ###

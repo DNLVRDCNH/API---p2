@@ -50,6 +50,7 @@ public class Curso {
         this.descricao = data.descricao();
         this.cargaHoraria = data.cargaHoraria();
         this.status = data.status();
-        this.horaCriacao = data.horaCriacao();
+        // Se horaCriacao não for fornecida, usa a data/hora atual
+        this.horaCriacao = data.horaCriacao() != null ? data.horaCriacao() : LocalDateTime.now();
     }
 }
