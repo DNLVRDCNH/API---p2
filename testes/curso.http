@@ -1,7 +1,21 @@
-@url = https://vigilant-guacamole-r999xv6pw7jh5rpr-8080.app.github.dev/cursos
+@baseUrl = https://vigilant-guacamole-r999xv6pw7jh5rpr-8080.app.github.dev
+@url = {{baseUrl}}/cursos
+@token = 
+
+### LOGIN - Execute primeiro para obter o token
+POST {{baseUrl}}/auth
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "root"
+}
+
+###
 
 
 POST {{url}}
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {

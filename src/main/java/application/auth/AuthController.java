@@ -19,6 +19,7 @@ public class AuthController {
 
     @PostMapping
     public String login(@RequestBody Usuario usuario) {
+        System.out.println(">>> O PEDIDO DE LOGIN CHEGOU AQUI! User: " + usuario.getUsername());
         UsernamePasswordAuthenticationToken tk =
             new UsernamePasswordAuthenticationToken(
                 usuario.getUsername(), usuario.getPassword());
